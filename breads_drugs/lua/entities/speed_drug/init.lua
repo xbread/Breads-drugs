@@ -32,7 +32,7 @@ function ENT:Use(pPlayer)
         hasSpeed = false 
         pPlayer:SetRunSpeed(pPlayer:GetRunSpeed() / 2)
         pPlayer:SetWalkSpeed(pPlayer:GetWalkSpeed() / 2) 
-        pPlayer:ChatPrint("It has been " .. speedTime .. " and your speed is now gone!")               
+        pPlayer:ChatPrint("It has been " .. speedTime .. " seconds and your speed is now gone!")     
     end)
     self:Remove()
 end

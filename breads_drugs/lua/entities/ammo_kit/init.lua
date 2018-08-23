@@ -13,6 +13,7 @@ function ENT:Initialize()
     self:PhysicsInit( SOLID_VPHYSICS )
     self:SetMoveType( MOVETYPE_VPHYSICS )
     self:SetSolid( SOLID_VPHYSICS )
+    self:SetUseType( SIMPLE_USE )
     local phys = self:GetPhysicsObject()
     if (phys:IsValid()) then
      phys:Wake()
@@ -27,12 +28,14 @@ local getAmmo =
     "XBowBolt",
     "pistol",
     "smg1",
+    "357",
     "ar2"
 }
 
 function ENT:Use(pPlayer, data)
 	for _, ammoType in pairs( getAmmo ) do
 		pPlayer:GiveAmmo( 30, ammoType )
-        self:Remove()
+        self:Remove()       
 	end
+     pPlayer:SendLua([[chatText("Ammo given")]])
 end

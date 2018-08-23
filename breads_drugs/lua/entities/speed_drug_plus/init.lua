@@ -32,7 +32,8 @@ function ENT:Use(pPlayer)
         hasSpeed = false 
         pPlayer:SetRunSpeed(pPlayer:GetRunSpeed() / 4)
         pPlayer:SetWalkSpeed(pPlayer:GetWalkSpeed() / 4) 
-        pPlayer:ChatPrint("It has been " .. speedTime .. " and your speed is now gone!")               
+        pPlayer:ChatPrint("It has been " .. speedTime .. " and your speed is now gone!")        
+        pPlayer:SendLua([[chatText("If your speed is lower than what you started with kill your self.")]])       
     end)
     self:Remove()
 end

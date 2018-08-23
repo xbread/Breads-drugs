@@ -6,6 +6,10 @@
 
 include("shared.lua")
 
+function chatText(strMessage)
+	chat.AddText(Color(255, 255, 255), "[EDEN] ", Color(255, 0, 255), strMessage)
+end
+
 function ENT:Draw()
 	self:DrawModel()
 

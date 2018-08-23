@@ -12,6 +12,7 @@ function ENT:Initialize()
     self:PhysicsInit( SOLID_VPHYSICS )
     self:SetMoveType( MOVETYPE_VPHYSICS )
     self:SetSolid( SOLID_VPHYSICS )
+    self:SetUseType( SIMPLE_USE )
     local phys = self:GetPhysicsObject()
     if (phys:IsValid()) then
      phys:Wake()
@@ -25,5 +26,6 @@ function ENT:Use(pPlayer)
     if (pPlayer:Armor() <= 399) then 
         pPlayer:SetArmor(400)
         self:Remove()
+        pPlayer:SendLua([[chatText("You now have 400 armor!")]])
     end
 end 
